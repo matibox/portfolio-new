@@ -1,5 +1,6 @@
 ---
 import Hero from '../components/Hero.astro';
+import Timeline from '../components/Timeline';
 import Layout from '../layouts/Layout.astro';
 
 import { Image } from '@astrojs/image/components';
@@ -9,7 +10,8 @@ const links: string[] = ['about', 'skills', 'projects', 'contact'];
 ---
 
 <Layout title="Mateusz Hladky">
-  <nav class="w-full flex justify-between py-8 px-16 items-center fixed top-0 left-0">
+  <!-- nav -->
+  <nav class="z-20 w-full flex justify-between py-8 px-16 items-center fixed top-0 left-0">
     <a href="#hero">
       <Image src="/Logo.svg" alt="Logo" width={80} height={42} />
     </a>
@@ -24,5 +26,6 @@ const links: string[] = ['about', 'skills', 'projects', 'contact'];
       ))} 
     </div>
   </nav>
+  <Timeline links={links} client:only />
   <Hero />
 </Layout>        
