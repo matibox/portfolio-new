@@ -1,3 +1,16 @@
-<main id="hero" class="h-screen bg-gradient-to-bl from-background-gradient-1 to-background-gradient-2">
+---
+import Anchor from './Anchor.astro';
+---
 
+<main id="hero" class="h-screen bg-gradient-to-bl from-background-gradient-1 to-background-gradient-2 pl-64 flex items-center">
+  <div class="flex flex-col gap-4">
+    <div class="flex flex-col">
+      <h1 class="text-heading-primary font-bold text-6xl">Mateusz Hladky<span class="text-gradient">.</span></h1>
+      <h2 class="-order-1 text-gradient font-light text-4xl">Hi, my name is</h2>
+    </div>
+    <p class="text-text text-xl pl-0.5 mb-2">A Self-taught frontend developer</p>
+    <Anchor href='#about' selfStart>
+      About me
+    </Anchor>
+  </div>
 </main>

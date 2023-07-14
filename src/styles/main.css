@@ -1,5 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Montserrat:wght@300;400;500;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.text-gradient {
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-accent-gradient-1 to-accent-gradient-2
+}

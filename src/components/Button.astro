@@ -1,0 +1,12 @@
+---
+export interface Props {
+  selfStart?: boolean;
+  id?: string;
+}
+
+const { id, selfStart } = Astro.props
+---
+
+<button id={id} class={`relative flex px-6 py-1 after:absolute after:top-0 after:left-0 after:w-full after:h-full after:ring-1 after:ring-accent-gradient-1 text-gradient text-lg font-medium ${selfStart ? 'self-start' : ''} before:absolute before:top-0 before:left-0 before:w-full before:h-full before:ring-1 before:ring-accent-gradient-2 hover:after:-translate-x-[3px] hover:after:-translate-y-[3px] hover:before:translate-x-[3px] hover:before:translate-y-[3px] after:transition-transform before:transition-transform`}>
+    <slot />
+</button> 
