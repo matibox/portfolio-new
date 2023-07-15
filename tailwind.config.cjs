@@ -16,7 +16,8 @@ module.exports = {
         },
         text: '#a5abbd',
         accent: {
-          main: '#173057',
+          main: 'hsl(217, 58%, 22%)',
+          dark: 'hsl(217, 58%, 18%)',
           'gradient-1': '#64ffda',
           'gradient-2': '#69bdff',
         },

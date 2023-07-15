@@ -1,16 +1,18 @@
 ---
 import Anchor from '../components/Anchor.astro';
 import SectionHeading from '../components/SectionHeading.astro';
+import Skill from '../components/Skill.astro';
 import Timeline from '../components/Timeline';
 import Layout from '../layouts/Layout.astro';
 
 const links: string[] = ['about', 'skills', 'projects', 'contact'];
 
+const skills: string[] = ['html', 'css', 'scss', 'tailwind', 'js', 'ts', 'react', 'next', 'prisma', 'git', 'figma'];
 ---
 
 <Layout title="Mateusz Hladky">
   <!-- nav -->
-  <nav class="z-20 w-full flex justify-between py-8 px-16 items-center fixed top-0 left-0">
+  <nav class="z-50 w-full flex justify-between py-8 px-16 items-center fixed top-0 left-0">
     <a href="#hero">
       <img src="/Logo.svg" alt="Logo" />
     </a>
@@ -50,6 +52,18 @@ const links: string[] = ['about', 'skills', 'projects', 'contact'];
           <img src="/AboutPhoto.png" alt="Mateusz Hladky" class="grayscale w-full relative z-30 transition group-hover:grayscale-0 select-none duration-300 ease-linear">
         </figure>
       </div>
+    </div>
+  </section>
+  <!-- skills -->
+  <section id="skills" class="h-screen px-64 flex items-center bg-background-main">
+    <div class="flex flex-col gap-8">
+      <SectionHeading num={2} title="skills"  />
+        <p class="text-xl text-text">Here are the technologies that I currently use. In the future I'd like to learn more about backend techs and testing libraries.</p>
+        <div class="flex gap-x-4 gap-y-16 flex-wrap">
+          {skills.map(skill => (
+            <Skill img={`${skill}.png`} alt={skill} label={skill} />
+          ))}
+        </div>
     </div>
   </section>
 </Layout>        
