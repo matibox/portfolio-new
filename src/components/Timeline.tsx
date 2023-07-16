@@ -1,9 +1,14 @@
 import { Fragment, useEffect, useState } from 'react';
+import useScrollThrottle from '../hooks/useScrollThrottle';
 
 export default function Timeline({ links }: { links: string[] }) {
   const [scrollDistance, setScrollDistance] = useState(
     window.document.documentElement.scrollTop
   );
+
+  useScrollThrottle(() => {
+    setScrollDistance(window.document.documentElement.scrollTop);
+  });
 
   let throttleInProgress = false;
 
@@ -12,7 +17,6 @@ export default function Timeline({ links }: { links: string[] }) {
     throttleInProgress = true;
 
     setTimeout(() => {
-      setScrollDistance(window.document.documentElement.scrollTop);
       throttleInProgress = false;
     }, 500);
   }

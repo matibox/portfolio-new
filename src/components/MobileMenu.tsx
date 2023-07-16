@@ -36,7 +36,7 @@ export default function MobileMenu({ links }: { links: string[] }) {
       />
       <div
         className={`absolute transition top-0 right-0 w-1/2 translate-x-full h-screen bg-background-dark flex items-center justify-center ${
-          isOpened ? '-translate-x-0' : ''
+          isOpened ? 'translate-x-0' : ''
         }`}
       >
         <div className='flex flex-col gap-10'>
