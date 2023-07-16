@@ -42,6 +42,7 @@ export default function MobileMenu({ links }: { links: string[] }) {
         <div className='flex flex-col gap-10'>
           {links.map((link, i) => (
             <a
+              key={link}
               className='flex group gap-[6px] items-end'
               href={`#${link}`}
               onClick={() => setIsOpened(false)}

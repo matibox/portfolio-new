@@ -26,7 +26,7 @@ export default function Timeline({ links }: { links: string[] }) {
   }, []);
 
   return (
-    <aside className={`relative top-[50vh] left-28 w-10`}>
+    <aside className={`relative top-[50vh] left-24 w-10 hidden xl:block`}>
       {['hero', ...links].map((page, i) => (
         <Fragment key={page}>
           <Dot
