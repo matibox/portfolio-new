@@ -1,5 +1,6 @@
 ---
 import Anchor from '../components/Anchor.astro';
+import MobileMenu from '../components/MobileMenu';
 import SectionHeading from '../components/SectionHeading.astro';
 import Skill from '../components/Skill.astro';
 import Timeline from '../components/Timeline';
@@ -16,7 +17,7 @@ const skills: string[] = ['html', 'css', 'scss', 'tailwind', 'js', 'ts', 'react'
     <a href="#hero">
       <img src="/Logo.svg" alt="Logo" />
     </a>
-    <div class="hidden gap-6 md:flex">
+    <div class="hidden gap-6 md:flex lg:gap-161">
       {links.map((link, i) => (
         <a class="flex group gap-[6px] items-end" href={`#${link}`}>
           <span class="text-gradient font-lato">{i + 1}.</span>
@@ -26,11 +27,7 @@ const skills: string[] = ['html', 'css', 'scss', 'tailwind', 'js', 'ts', 'react'
         </a>  
       ))} 
     </div>
-    <button class="flex md:hidden relative w-8 h-6">
-      <div class="h-1 w-full bg-gradient-to-tr from-accent-gradient-1 to-accent-gradient-2 rounded-sm absolute top-0" />
-      <div class="h-1 w-full bg-gradient-to-tr from-accent-gradient-1 to-accent-gradient-2 rounded-sm absolute top-1/2 -translate-y-1/2" />
-      <div class="h-1 w-full bg-gradient-to-tr from-accent-gradient-1 to-accent-gradient-2 rounded-sm absolute bottom-0" />
-    </button>
+    <MobileMenu links={links} client:load />
   </nav>
   <!-- <Timeline links={links} client:only /> -->
   <!-- hero -->
@@ -47,7 +44,7 @@ const skills: string[] = ['html', 'css', 'scss', 'tailwind', 'js', 'ts', 'react'
     </div>
     <img src="/Tilt.png" alt="" class="absolute bottom-0 left-0 w-full" />
   </main>
-  <!-- <section id="about" class="h-screen px-64 flex items-center bg-background-main">
+  <section id="about" class="h-screen px-64 flex items-center bg-background-main">
     <div class="flex flex-col gap-16">
       <SectionHeading num={1} title="about" />
       <div class="flex items-center justify-between gap-64">
@@ -68,5 +65,5 @@ const skills: string[] = ['html', 'css', 'scss', 'tailwind', 'js', 'ts', 'react'
           ))}
         </div>
     </div>
-  </section> -->
+  </section>
 </Layout>        
