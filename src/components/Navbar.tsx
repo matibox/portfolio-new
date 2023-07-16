@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import MobileMenu from '../components/MobileMenu';
 import useScrollThrottle from '../hooks/useScrollThrottle';
-import { clsx } from 'clsx';
+import cn from 'classnames';
 
 export default function Navbar({ links }: { links: string[] }) {
   const [hasScrolled, setHasScrolled] = useState(
@@ -14,10 +14,11 @@ export default function Navbar({ links }: { links: string[] }) {
 
   return (
     <nav
-      className={clsx(
-        'z-50 w-full flex justify-between py-8 px-8 md:px-16 items-center fixed top-0 left-0 transition',
+      className={cn(
+        'z-50 w-full flex justify-between px-8 md:px-16 items-center fixed top-0 left-0 transition',
         {
           'bg-background-dark py-4': hasScrolled,
+          'py-8': !hasScrolled,
         }
       )}
     >

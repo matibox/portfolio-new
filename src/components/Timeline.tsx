@@ -53,8 +53,8 @@ export default function Timeline({ links }: { links: string[] }) {
 function Dot({ top, active = false }: { top: string; active?: boolean }) {
   return (
     <div
-      className={`absolute w-10 h-10 z-20 transition-colors rounded-full ring-2 ring-heading-primary ${
-        active ? 'bg-accent-gradient-2' : ''
+      className={`absolute w-10 h-10 z-20 transition-colors rounded-full ring-2 ring-heading-primary before:absolute before:top-0 before:left-0 before:w-full before:h-full before:rounded-full before:bg-gradient-to-tr before:from-accent-gradient-1 before:to-accent-gradient-2 before:transition ${
+        active ? 'before:opacity-100' : 'before:opacity-0'
       }`}
       style={{ top }}
     />

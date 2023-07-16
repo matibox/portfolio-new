@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import { useState } from 'react';
 
 export default function MobileMenu({ links }: { links: string[] }) {
@@ -35,9 +36,13 @@ export default function MobileMenu({ links }: { links: string[] }) {
         onClick={() => setIsOpened(false)}
       />
       <div
-        className={`absolute transition top-0 right-0 w-1/2 translate-x-full h-screen bg-background-dark flex items-center justify-center ${
-          isOpened ? 'translate-x-0' : ''
-        }`}
+        className={cn(
+          'absolute transition top-0 right-0 w-1/2 h-screen bg-background-dark flex items-center justify-center',
+          {
+            'translate-x-0': isOpened,
+            'translate-x-full': !isOpened,
+          }
+        )}
       >
         <div className='flex flex-col gap-10'>
           {links.map((link, i) => (
