@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 export interface Props {
   img: string;
   alt: string;
@@ -10,7 +12,7 @@ const { img, alt, label } = Astro.props
 
 <div class="relative z-10 select-none">
   <div class="group w-20 h-20 rounded-full bg-accent-dark flex items-center justify-center hover:bg-accent-main transition relative before:absolute before:-top-[1px] before:-left-[1px] before:h-[calc(100%+2px)] before:aspect-square before:bg-gradient-to-tr before:from-accent-gradient-1 before:to-accent-gradient-2 before:rounded-full before:-z-10 before:opacity-0 hover:before:opacity-100 before:transition-opacity">
-    <img src={img} alt={alt} class="w-10 h-10" />
+    <Image src={img} alt={alt} height={40} width={40} />
     <span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition group-hover:translate-y-11 md:group-hover:translate-y-14 group-hover:opacity-100 duration-300 font-bold text-gradient -z-10">{label.toUpperCase()}</span>
   </div>
 </div>

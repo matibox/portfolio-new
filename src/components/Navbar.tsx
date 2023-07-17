@@ -1,12 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import MobileMenu from '../components/MobileMenu';
 import useScrollThrottle from '../hooks/useScrollThrottle';
 import cn from 'classnames';
 
 export default function Navbar({ links }: { links: string[] }) {
-  const [hasScrolled, setHasScrolled] = useState(
-    window.document.documentElement.scrollTop > 0
-  );
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  useEffect(() => {
+    setHasScrolled(window.document.documentElement.scrollTop > 0);
+  }, []);
 
   useScrollThrottle(() => {
     setHasScrolled(window.document.documentElement.scrollTop > 0);
@@ -17,15 +19,22 @@ export default function Navbar({ links }: { links: string[] }) {
       className={cn(
         'z-50 w-full flex justify-between px-8 md:px-16 items-center fixed top-0 left-0 transition',
         {
-          'bg-background-dark py-4': hasScrolled,
+          'bg-background-dark py-3 lg:py-4': hasScrolled,
           'py-8': !hasScrolled,
         }
       )}
     >
       <a href='#hero'>
-        <img src='/Logo.svg' alt='Logo' />
+        <img
+          src='/Logo.svg'
+          alt='Logo'
+          loading='lazy'
+          height={42}
+          width={80}
+          className='w-16 sm:w-20'
+        />
       </a>
-      <div className='hidden gap-6 md:flex lg:gap-161'>
+      <div className='hidden gap-6 md:flex lg:gap-16'>
         {links.map((link, i) => (
           <a
             key={link}
