@@ -31,21 +31,22 @@ export default function Timeline({ links }: { links: string[] }) {
 
   return (
     <aside className={`relative top-[50vh] left-24 w-10 hidden xl:block`}>
-      {['hero', ...links].map((page, i) => (
-        <Fragment key={page}>
-          <Dot
-            top={`${i * window.innerHeight}px`}
-            active={
-              scrollDistance >= i * window.innerHeight * 0.6 &&
-              scrollDistance <=
-                i * window.innerHeight + window.innerHeight * 0.3
-            }
-          />
-          {links.length !== i ? (
-            <Line top={`${i * window.innerHeight + 40}px`} />
-          ) : null}
-        </Fragment>
-      ))}
+      {['hero', ...links].map((page, i) => {
+        const top = i * window.innerHeight;
+
+        return (
+          <Fragment key={page}>
+            <Dot
+              top={`${top}px`}
+              active={
+                scrollDistance >= top * 0.6 &&
+                scrollDistance <= top + window.innerHeight * 0.3
+              }
+            />
+            {links.length !== i ? <Line top={`${top + 40}px`} /> : null}
+          </Fragment>
+        );
+      })}
     </aside>
   );
 }

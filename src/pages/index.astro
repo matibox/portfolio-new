@@ -6,17 +6,53 @@ import SectionHeading from '../components/SectionHeading.astro';
 import Skill from '../components/Skill.astro';
 import Timeline from '../components/Timeline';
 import Layout from '../layouts/Layout.astro';
+import Project from '../components/Project.astro';
 
-import aboutPhoto from '../assets/AboutPhoto.png'
+import aboutPhoto from '../assets/AboutPhoto.png';
+import tilt from '../assets/Tilt.png';
+import wave from '../assets/Wave.png'
+import tiltDark from '../assets/TiltDark.png'
 
 const links: string[] = ['about', 'skills', 'projects', 'contact'];
 
 const skills: string[] = ['html', 'css', 'scss', 'tailwind', 'js', 'ts', 'react', 'next', 'prisma', 'git', 'figma'];
+
+export type Project = {
+  name: string;
+  description: string;
+  websiteUrl: string;
+  githubUrl: string;
+  technologiesUsed: string[];
+};
+
+const projects: Project[] = [
+  {
+    name: 'Race results app',
+    description: 'Race results app is the biggest project I\'ve ever made. I\'m still slowly improving it. This app allows users to schedule races, manage and join teams, track their race results, upload and share car setups, and add championships. It\'s a very convenient way of having everything organized in one place. Website makes simaracer\'s life easier.',
+    websiteUrl: 'https://race-results-app.vercel.app',
+    githubUrl: 'https://github.com/matibox/race-results-app',
+    technologiesUsed: ['Next.js', 'TS', 'Tailwind', 'Prisma', 'TRPC']
+  },
+  {
+    name: 'Gastry',
+    description: 'Gastry is a recipe app that allows users to add, search and mark recipes as favorites. This app also features creating a custom menu for each day consisting of recipes in a database.',
+    websiteUrl: 'https://gastry.vercel.app',
+    githubUrl: 'https://github.com/matibox/gastry',
+    technologiesUsed: ['React', 'TS', 'CSS', 'Prisma', 'Express'],
+  },
+  {
+    name: 'E-commerce page',
+    description: 'The E-commerce product page, a project from frontendmentor.io is one of the projects that I\'m the proudest of. The website features a responsive and mobile-first layout, a lightbox gallery, a product image slider and a product cart. I used a library called Glide.js, which was easy to work with.',
+    websiteUrl: 'https://mateuszhladky.netlify.app/projects/ecommerce-product-page',
+    githubUrl: 'https://github.com/matibox/ecommerce-product-page',
+    technologiesUsed: ['HTML', 'SCSS', 'JS', 'Glide']
+  }
+];
 ---
 
 <Layout title="Mateusz Hladky">
   <Navbar links={links} client:load />
-  <Timeline links={links} client:only />
+  <!-- <Timeline links={links} client:only /> -->
   <!-- hero -->
   <main id="hero" class="h-screen bg-gradient-to-bl from-background-gradient-1 to-background-gradient-2 lg:pl-64 flex items-center relative">
     <div class="flex flex-col gap-2 md:gap-4 mx-auto lg:mx-0">
@@ -29,7 +65,7 @@ const skills: string[] = ['html', 'css', 'scss', 'tailwind', 'js', 'ts', 'react'
         About me
       </Anchor>
     </div>
-    <img src="/Tilt.png" alt="" class="absolute bottom-0 left-0 w-full" />
+    <Image src={tilt} alt="" width={tilt.width} height={tilt.height} class="absolute bottom-0 left-0 w-full" />
   </main>
   <!-- about -->
   <section id="about" class="h-screen px-10 sm:px-16 md:px-32 xl:px-56 flex items-center bg-background-main">
@@ -47,13 +83,26 @@ const skills: string[] = ['html', 'css', 'scss', 'tailwind', 'js', 'ts', 'react'
   <section id="skills" class="h-screen px-10 sm:px-16 md:px-32 xl:px-56 flex items-center bg-background-main">
     <div class="flex flex-col gap-8">
       <SectionHeading num={2} title="skills"  />
-        <p class="text-lg md:text-xl text-text">Here are the technologies that I currently use. In the future I'd like to learn more about backend techs and testing libraries.</p>
-        <div class="gap-x-4 gap-y-8 md:gap-y-16 grid grid-cols-[repeat(auto-fill,5rem)] justify-center">
-          {skills.map(skill => (
-            <Skill img={`${skill}.png`} alt={skill} label={skill} />
-          ))}
-        </div>
+      <p class="text-lg md:text-xl text-text">Here are the technologies that I currently use. In the future I'd like to learn more about backend techs and testing libraries.</p>
+      <div class="gap-x-4 gap-y-8 md:gap-y-16 grid grid-cols-[repeat(auto-fill,5rem)] justify-center">
+        {skills.map(skill => (
+          <Skill img={`${skill}.png`} alt={skill} label={skill} />
+        ))}
+      </div>
     </div>
   </section>
   <!-- projects -->
+  <section id="projects" class="h-[175vh] px-10 sm:px-16 md:px-32 xl:px-56 flex items-center bg-gradient-to-b from-background-gradient-2  to-background-gradient-1 relative">
+    <Image src={wave} alt="" width={wave.width} height={wave.height} class="absolute top-0 left-0 w-full" />
+    <div class="flex flex-col gap-16">
+      <SectionHeading num={3} title="projects"  />
+        <div class="flex flex-wrap gap-16">
+        {projects.map(project => (
+          <Project project={project} />
+        ))}
+      </div>
+      <p class="text-lg md:text-xl text-heading-primary">For more projects visit my <a href="https://github.com/matibox" target="_blank" rel="noreferrer" class="text-accent-gradient-2 hover:text-accent-gradient-1 transition">github</a></p>
+    </div>
+    <Image src={tiltDark} alt="" width={tiltDark.width} height={tilt.height} class="absolute bottom-0 left-0 w-full" />
+  </section>
 </Layout>        
