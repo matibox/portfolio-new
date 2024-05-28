@@ -13,42 +13,7 @@ import tilt from '../assets/Tilt.png';
 import wave from '../assets/Wave.png'
 import tiltDark from '../assets/TiltDark.png'
 
-const links: string[] = ['about', 'skills', 'projects', 'contact'];
-
-const skills: string[] = ['html', 'css', 'scss', 'tailwind', 'js', 'ts', 'react', 'next', 'prisma', 'git', 'figma'];
-
-export type Project = {
-  name: string;
-  description: string;
-  websiteUrl: string;
-  githubUrl: string;
-  technologiesUsed: string[];
-};
-
-const projects: Project[] = [
-  {
-    name: 'Race results app',
-    description: 'Race results app is the biggest project I\'ve ever made. I\'m still slowly improving it. This app allows users to schedule races, manage and join teams, track their race results, upload and share car setups, and add championships. It\'s a very convenient way of having everything organized in one place. Website makes simaracer\'s life easier.',
-    websiteUrl: 'https://race-results-app.vercel.app',
-    githubUrl: 'https://github.com/matibox/race-results-app',
-    technologiesUsed: ['Next.js', 'TS', 'Tailwind', 'Prisma', 'TRPC']
-  },
-  {
-    name: 'Gastry',
-    description: 'Gastry is a recipe app that allows users to add, search and mark recipes as favorites. This app also features creating a custom menu for each day consisting of recipes in a database.',
-    websiteUrl: 'https://gastry.vercel.app',
-    githubUrl: 'https://github.com/matibox/gastry',
-    technologiesUsed: ['React', 'TS', 'CSS', 'Prisma', 'Express'],
-  },
-  {
-    name: 'E-commerce page',
-    description: 'The E-commerce product page, a project from frontendmentor.io is one of the projects that I\'m the proudest of. The website features a responsive and mobile-first layout, a lightbox gallery, a product image slider and a product cart. I used a library called Glide.js, which was easy to work with.',
-    websiteUrl: 'https://ecommerce-product-page-matibox.vercel.app/',
-    githubUrl: 'https://github.com/matibox/ecommerce-product-page',
-    technologiesUsed: ['HTML', 'SCSS', 'JS']
-  }
-];
-
+import { links, projects, skills } from '../constants';
 ---
 
 <Layout title="Mateusz Hladky">
@@ -103,8 +68,10 @@ const projects: Project[] = [
             <Project project={project} />
           ))}
         </div>
-      <p class="text-lg md:text-xl text-heading-primary">For more projects visit my <a href="https://github.com/matibox" target="_blank" rel="noreferrer" class="text-accent-gradient-2 hover:text-accent-gradient-1 transition">github</a></p>
-    </div>
+      <p class="text-lg md:text-xl text-heading-primary">Apart from that I also contribute to open source projects, like <a href="https://github.com/t3-oss/create-t3-app/pull/1327" target="_blank" rel="noreferrer" class="text-accent-gradient-2 hover:text-accent-gradient-1 transition">create-t3-app</a> <br />
+        For more projects visit my <a href="https://github.com/matibox" target="_blank" rel="noreferrer" class="text-accent-gradient-2 hover:text-accent-gradient-1 transition">github</a>
+      </p>
+     </div>
     <Image src={tiltDark} alt="" width={tiltDark.width} height={tilt.height} class="absolute bottom-0 left-0 w-full" />
   </section>
   <!-- contact -->
@@ -122,7 +89,7 @@ const projects: Project[] = [
       </a>
     </div>
     <div class="absolute bottom-0 left-0 w-full flex justify-center items-center py-4">
-      <p class="text-sm sm:text-base text-text">Designed and made by <a href="https://github.com/matibox" target="_blank" rel="noreferrer" class="transition text-accent-gradient-2 hover:text-accent-gradient-1">Mateusz Hladky</a></p>
+      <p class="text-sm sm:text-base text-text">Designed and made by <a href="https://github.com/matibox" target="_blank" rel="noreferrer" class="transition text-accent-gradient-2 hover:text-accent-gradient-1 underline">Mateusz Hladky</a></p>
     </div>
   </section>
 </Layout>        

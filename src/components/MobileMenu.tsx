@@ -8,6 +8,7 @@ export default function MobileMenu({ links }: { links: string[] }) {
     <>
       <button
         className='flex md:hidden relative w-8 h-6 z-10'
+        aria-label={`${isOpened ? 'close' : 'open'} menu`}
         onClick={() => setIsOpened(prev => !prev)}
       >
         <div
