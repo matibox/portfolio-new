@@ -43,7 +43,7 @@ export const projects: Project[] = [
   {
     name: 'Trackmate',
     description: "Making simracer's life easier.",
-    websiteUrl: 'https://mytrackmate.vercel.app',
+    websiteUrl: 'https://github.com/matibox/trackmate',
     githubUrl: 'https://github.com/matibox/trackmate',
     technologiesUsed: [
       'Next.js',
