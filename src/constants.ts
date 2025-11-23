@@ -1,6 +1,7 @@
-export const links: string[] = ['about', 'skills', 'projects', 'contact'];
+export const links: string[] = ['experience', 'skills', 'projects', 'contact'];
 
 export const skills: string[] = [
+  'cursor',
   'html',
   'css',
   'tailwind',
@@ -12,6 +13,38 @@ export const skills: string[] = [
   'drizzle',
   'git',
   'figma',
+];
+
+export type Experience = {
+  company: string;
+  position: string;
+  type: string;
+  duration: string;
+  place: string;
+  skills: string[];
+};
+
+export const experience: Experience[] = [
+  {
+    company: '"2 Skoczki" Cyprian Gepfert',
+    position: 'Fullstack developer',
+    type: 'internship',
+    duration: 'march 2025',
+    place: 'Skoczów, Poland (remote)',
+    skills: [
+      'Creating fullstack projects using T3 stack',
+      'Following scrum principles',
+      'Using AI to improve productivity',
+    ],
+  },
+  {
+    company: 'Optimal Wojciech Tatka',
+    position: 'Web developer & CMS administrator',
+    type: 'internship',
+    duration: 'may 2024 - jun 2024',
+    place: 'Skoczów, Poland',
+    skills: ['Creating web applications', 'Administrating a custom CMS system'],
+  },
 ];
 
 export type Project = {
